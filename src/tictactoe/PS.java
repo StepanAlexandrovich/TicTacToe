@@ -2,10 +2,10 @@ package tictactoe;
 
 class PS {
     // final
-    final static int width = 4;
-    final static int height = 4;
-    final static int lengthVector = 3;
-    final static int multiplication = 100;
+    final static int width = 6;
+    final static int height = 5;
+    final static int lengthVector = 4;
+    final static int multiplication = 50;
     final static int widthMult = width*multiplication;
     final static int heightMult = height*multiplication;
     
@@ -16,7 +16,7 @@ class PS {
     final static String process = "process";
     
     // dynamic
-    private static int depth = 6;
+    private static int depth = 7;
     private static String symbolPC = symbolStart;
     private static String symbolUser = symbolFinish;
     

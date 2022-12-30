@@ -5,27 +5,28 @@ class Core {
     private Field field = new Field();
     private Winner winner = new Winner();
     private Counter counter = new Counter();
-        
+
     Matrix getMatrix(){
         return field.getMatrix();
     }
     
-    Matrix startPosition(){   
+    Matrix startPosition(){
         if(PS.getSymbolPC().equals(PS.symbolStart)){
             field.randomStart(PS.getSymbolPC());
+            //field.centerStart(PS.getSymbolPC());
         }else{
             field.reset();
         }
         return field.getMatrix();
     }
     
-    boolean movePC(){
-        int position = counter.process(PS.getSymbolPC(),field.getMatrix());
-        return field.move(PS.getSymbolPC(), position);
+    int movePC(){
+        int index = counter.process(PS.getSymbolPC(),field.getMatrix());
+        return field.move(PS.getSymbolPC(),index);
     }
     
-    boolean moveUser(int position){
-        return field.move(PS.getSymbolUser(), position);
+    int moveUser(int index){
+        return field.move(PS.getSymbolUser(),index);
     }
     
     boolean gameOver(){
@@ -42,6 +43,5 @@ class Core {
         if(winner.getWinner(field.getMatrix()).equals(PS.draw))            { return PS.draw;    }else    
         return PS.process;
     }
-    
-    
+
 }

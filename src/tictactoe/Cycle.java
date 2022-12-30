@@ -5,30 +5,34 @@ class Cycle {
     private FrameGame frame = new FrameGame();
     private boolean next = false;
 
+    private int lastMove = -1;
+
     private void startPosition(){
         next = false;
-        frame.update(core.startPosition());
+        lastMove = -1;
+        frame.update(core.startPosition(),lastMove);
     }
 
     private void moveUser(){
         frame.setText("Your move");
 
-        while(!core.moveUser( frame.getIndexUser())){
+        do{
+            lastMove = core.moveUser( frame.getIndexUser());
             Helper.sleep(10);
-        }
+        }while(lastMove ==-1);
 
         frame.setText("");
     }
     private void movePC(){
         frame.setText("PC is thinking");
 
-        core.movePC();
+        lastMove = core.movePC();
 
         frame.setText("");
     }
 
     private void updateFrame(){
-        frame.update(core.getMatrix());
+        frame.update(core.getMatrix(),lastMove);
     }
 
     private String frameSettings(){

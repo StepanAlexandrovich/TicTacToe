@@ -36,9 +36,9 @@ class FrameGame extends JFrame{
         extra.setText(text);
     }
 
-    void update(Matrix matrix){
+    void update(Matrix matrix,int lastMove){
         indexUser = -1;
-        render.process(matrix);
+        render.process(matrix,lastMove);
         repaint();
     }
     ///////////////////////

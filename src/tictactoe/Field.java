@@ -20,17 +20,22 @@ class Field {
         reset();
         matrix.setSymbol((int)(Math.random()*length),symbol);
     }
+
+    void centerStart(String symbol){
+        reset();
+        matrix.setSymbol(PS.width/2,PS.height/2,symbol);
+    }
     
-    boolean move(String symbol,int index){
+    int move(String symbol,int index){
         if(
                 index>=0 && 
                 index<length && 
                 matrix.getSymbol(index).equals(symbolEmpty)){ 
             
             matrix.setSymbol(index,symbol);
-            return true;
+            return index;
         }
-        return false; 
+        return -1;
     }
     
     void resetMove(int index){
