@@ -3,7 +3,7 @@ package tictactoe;
 class Core {  
     //// игровая платформа
     private Field field = new Field();
-    public Winner winner = new Winner(); 
+    private Winner winner = new Winner();
     private Counter counter = new Counter();
         
     Matrix getMatrix(){

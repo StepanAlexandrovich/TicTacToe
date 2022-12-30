@@ -2,7 +2,6 @@ package tictactoe;
 
 class Winner {
     private Matrix matrix;
-    
     String getWinner(Matrix matrix){
         this.matrix = matrix;
         
